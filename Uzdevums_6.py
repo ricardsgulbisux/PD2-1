@@ -20,7 +20,6 @@ for node in nodes:
     ip_address = data[1]
     status = data[3].upper()
     
-    # Atlasām tikai tos, kas sākas ar "Srv"
     if hostname.startswith("Srv"):
         server_dict[ip_address] = status
 
