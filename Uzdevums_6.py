@@ -15,6 +15,7 @@ nodes = [
 server_dict = {}
 
 for node in nodes:
+    
     data = node.split(';')
     hostname = data[0]
     ip_address = data[1]

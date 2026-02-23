@@ -15,7 +15,7 @@ nodes = [
 formatted_hostnames = []
 
 for node in nodes:
-    
+
     hostname = node.split(';')[0]
     
     new_name = hostname.lower().replace('-', '_') + ".local"
