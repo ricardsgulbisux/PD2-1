@@ -11,3 +11,14 @@ nodes = [
     "Printer-Main;192.168.1.200;0;down",
     "Srv-Log;10.0.0.15;105;UP"
 ]
+
+formatted_hostnames = []
+
+for node in nodes:
+    
+    hostname = node.split(';')[0]
+    
+    new_name = hostname.lower().replace('-', '_') + ".local"
+    
+    formatted_hostnames.append(new_name)
+    print(new_name)

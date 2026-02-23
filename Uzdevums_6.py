@@ -11,3 +11,17 @@ nodes = [
     "Printer-Main;192.168.1.200;0;down",
     "Srv-Log;10.0.0.15;105;UP"
 ]
+
+server_dict = {}
+
+for node in nodes:
+    data = node.split(';')
+    hostname = data[0]
+    ip_address = data[1]
+    status = data[3].upper()
+    
+    # Atlasām tikai tos, kas sākas ar "Srv"
+    if hostname.startswith("Srv"):
+        server_dict[ip_address] = status
+
+print(server_dict)
