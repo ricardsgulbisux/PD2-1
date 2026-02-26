@@ -21,7 +21,6 @@ def iegut_serveru_statusus(mezglu_saraksts):
         data = node.split(';')
         hostname = data[0]
         ip_address = data[1]
-        # Pārveidojam statusu uz lielajiem burtiem (lai up -> UP)
         status = data[3].upper()
         
         if hostname.startswith("Srv") and hostname not in izslegtie:
