@@ -15,7 +15,6 @@ nodes = [
 def iegut_serveru_statusus(mezglu_saraksts):
     server_dict = {}
     
-    izslegtie = ["Workstation-A", "Router-Core"]
     
     for node in mezglu_saraksts:
         data = node.split(';')
@@ -23,7 +22,7 @@ def iegut_serveru_statusus(mezglu_saraksts):
         ip_address = data[1]
         status = data[3].upper()
         
-        if hostname.startswith("Srv") and hostname not in izslegtie:
+        if hostname.startswith("Srv"):
             server_dict[ip_address] = status
             
     return server_dict
