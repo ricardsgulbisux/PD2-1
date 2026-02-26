@@ -12,16 +12,23 @@ nodes = [
     "Srv-Log;10.0.0.15;105;UP"
 ]
 
-server_dict = {}
-
-for node in nodes:
+def iegut_serveru_statusus(mezglu_saraksts):
+    server_dict = {}
     
-    data = node.split(';')
-    hostname = data[0]
-    ip_address = data[1]
-    status = data[3].upper()
+    izslegtie = ["Workstation-A", "Router-Core"]
     
-    if hostname.startswith("Srv"):
-        server_dict[ip_address] = status
+    for node in mezglu_saraksts:
+        data = node.split(';')
+        hostname = data[0]
+        ip_address = data[1]
+        # Pārveidojam statusu uz lielajiem burtiem (lai up -> UP)
+        status = data[3].upper()
+        
+        if hostname.startswith("Srv") and hostname not in izslegtie:
+            server_dict[ip_address] = status
+            
+    return server_dict
 
-print(server_dict)
+rezultats = iegut_serveru_statusus(nodes)
+
+print(rezultats)
